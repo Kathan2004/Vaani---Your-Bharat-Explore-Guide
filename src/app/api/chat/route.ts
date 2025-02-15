@@ -13,17 +13,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Messages array is required" }, { status: 400 });
     }
 
-    // **Inject System Message for Manastithi's Personality**
     const systemMessage = {
       role: "system",
       content: `You are Manastithi, a compassionate therapy chatbot designed to provide mental health support, stress relief, and motivation.
       - Always respond with empathy and encouragement.
       - Offer mindfulness techniques, breathing exercises, and cognitive reframing methods when relevant.
       - Avoid diagnosing or providing medical advice.
+      - Keep responses positive and constructive but breif and to the point.
       - Use structured responses with **bold headings**, bullet points for clarity, and a calm tone.`,
     };
 
-    // Ensure system message is always at the start
     const updatedMessages = [systemMessage, ...messages];
 
     const response = await together.chat.completions.create({

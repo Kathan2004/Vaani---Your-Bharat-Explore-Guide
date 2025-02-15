@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 import { Send, X, BookOpen, MessageCircle, Sparkles, Moon } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
-// Types
 interface Message {
   role: "system" | "user" | "assistant";
   content: string;
@@ -21,7 +20,7 @@ interface JournalEntry {
 }
 
 export default function Home() {
-  // Previous state declarations remain the same
+ 
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
@@ -35,7 +34,7 @@ export default function Home() {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Previous useEffect hooks remain the same
+
   useEffect(() => {
     const storedChat = localStorage.getItem("chat");
     if (storedChat) setChat(JSON.parse(storedChat));
@@ -59,7 +58,7 @@ export default function Home() {
     }
   }, [chat]);
 
-  // Previous function implementations remain the same
+  
   const sendMessage = async () => {
     if (!message.trim()) return;
     setLoading(true);
@@ -155,28 +154,7 @@ export default function Home() {
               </span>
             </h1>
             <div className="flex gap-4">
-              <button
-                onClick={() => setActiveTab("chat")}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
-                  activeTab === "chat" 
-                    ? "bg-white text-blue-600" 
-                    : "bg-transparent text-white hover:bg-white/20"
-                }`}
-              >
-                <MessageCircle size={20} />
-                Chat
-              </button>
-              <button
-                onClick={() => setActiveTab("journal")}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
-                  activeTab === "journal"
-                    ? "bg-white text-blue-600"
-                    : "bg-transparent text-white hover:bg-white/20"
-                }`}
-              >
-                <BookOpen size={20} />
-                Journal
-              </button>
+           
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full hover:bg-white/20 text-white"
@@ -432,7 +410,7 @@ export default function Home() {
                       ))}
                   </div>
 
-                  {/* Metadata */}
+
                   <div className={`mt-4 pt-4 border-t ${
                     theme === "dark" ? "border-gray-700" : "border-gray-200"
                   }`}>
