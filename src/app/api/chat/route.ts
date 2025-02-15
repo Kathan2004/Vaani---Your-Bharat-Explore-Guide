@@ -39,3 +39,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ reply: "I'm having trouble processing your request. Let's take a deep breath and try again. 😊" }, { status: 500 });
   }
 }
+

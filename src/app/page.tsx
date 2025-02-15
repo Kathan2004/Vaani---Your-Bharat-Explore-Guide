@@ -10,6 +10,7 @@ interface Message {
   content: string;
 }
 
+
 interface JournalEntry {
   id: number;
   content: string;

@@ -10,7 +10,8 @@ const together = new Together({ apiKey: API_KEY });
 
 export async function POST(req: Request) {
   try {
-    const { journalEntry } = await req.json();
+    const { journalEntry } = await req.json(); 
+    
 
     if (!journalEntry) {
       return NextResponse.json({ error: "Journal entry is required" }, { status: 400 });
